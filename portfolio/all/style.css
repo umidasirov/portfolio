@@ -1,0 +1,537 @@
+*{
+    padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body{
+    position: relative;
+    width: 1445px;
+    height: 4759px;
+    background-color: #FFFFFF;
+    margin: 0 auto;
+}
+
+.container{
+    margin: 0 auto;
+    width: 940px;
+}
+.closer{
+    display: none;
+}
+.navigation{
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    margin-top: 32px;
+    margin-bottom: 32px;
+}
+
+.navigation li{
+    font-family: 'Gilroy-Bold';
+     font-size: 18px;
+    line-height: 22px;
+    color: #828282;
+    list-style: none;
+    cursor: pointer;
+}
+
+.home{
+    color:#070707 !important;
+}
+
+.vector{
+    margin-bottom: 40px;
+   width: 940px;
+   height: 2px;
+   background-color: #828282;
+   border: 1px solid #828282;
+   transform: matrix(1, 0, 0, 1, 0, 0);
+}
+
+.about-author{
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.about-author .name{
+    font-family: sans-serif;
+    font-size: 47.3392px;
+    line-height: 59px;
+    color: #070707;
+    font-weight: 600;
+}
+
+.about-author .job{
+    margin-top: 71px;
+    font-family: sans-serif;
+    font-size: 18px;
+    line-height: 22px;
+    color: #070707;
+}
+
+.about-author .rus-eng{
+    align-items: center;
+    display: flex;
+    transform:rotate(270deg);
+    flex-direction: row-reverse;
+}
+
+.rus-eng .eng{ 
+    margin-left: 6px;
+    font-family: 'Gilroy-Bold';
+    font-size: 16px;
+    line-height: 20px;
+    cursor: pointer;
+}
+
+.rus-eng .ru{
+    color: #828282;
+    margin-right: 6px;
+    cursor: pointer;
+}
+
+.author-img{
+    width: 943.61px;
+    height: 387px;
+    background: url(./img/Denis-img.png);
+    margin-bottom: 100px;
+}
+
+
+/*section About me */
+
+.About-me{
+    width: 1445px;
+    height: 506px;
+    position: relative;
+    background: #F6F6F6;
+}
+
+.title-about-me{
+    padding-top: 120px;
+    width: 485.34px;
+    height: 300px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.title-about-me h1{
+    margin-bottom:20px ;
+    font-family: sans-serif;
+    font-size: 34px;
+    line-height: 42px;
+    font-weight: 700;
+    text-align: center;
+    color: #070707;
+}
+
+.title-about-me p{
+    font-family: sans-serif;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    color: #070707;
+
+}
+
+.title-about-me p:nth-child(3){
+    margin-bottom: 28px;
+    margin-top: 28px;
+}
+
+
+/* section Skills */
+
+.Skills{
+    height: 610px;
+    width: 1445px;
+}
+
+.title-skills{
+    text-align: center;
+}
+
+.title-skills h1{
+    padding-top: 90px;
+    padding-bottom: 70px;
+    font-family: sans-serif;
+    font-size: 34px;
+    line-height: 42px;
+    text-align: center;
+    color: #070707;
+}
+
+.title-skills p{
+    margin-bottom: 84px;
+    font-family: sans-serif;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    color: #070707;
+}
+
+.skills-group{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* group programm */
+
+.group-pr{
+    width: 165px;
+    height: 206px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.group-pr span{
+    width:79.33px;
+    height:27.27px;
+    font-family: sans-serif;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    color: #828282;
+    margin-top: 23px;
+}
+
+.group-pr:nth-child(1) img{
+    background: radial-gradient(75.99% 75.64% at 32.94% 22.44%, rgba(52, 54, 78, 0.98) 0%, #0C0824 100%);
+}
+
+.group-pr:nth-child(2) img{
+    background: radial-gradient(76% 75.63% at 32.97% 22.44%, rgba(66, 51, 37, 0.98) 0%, #1C0A00 100%);
+}
+
+.group-pr:nth-child(3) img{
+    background: radial-gradient(76% 75.63% at 32.97% 22.42%, rgba(68, 47, 85, 0.98) 0%, #12002C 100%);
+}
+
+.group-pr:nth-child(4) img{
+    width: 81px;
+    height: 88px;
+    background: #FFFFFF
+}
+
+.mobilka{
+    display: none;
+}
+
+.stars{    
+    margin-top: 25px;
+    width: 128px;
+    height: 26px;
+}
+
+.stars img{
+    width: 22px !important;
+    height: 26px !important;
+    background: none !important;
+    margin-bottom: none !important;
+}
+
+.Portfolio{
+    background-color: #F6F6F6;
+    height: 2253px;
+}
+
+.title-Portfolio h1{
+    padding-top: 113px;
+    font-family: sans-serif;
+    font-size: 34px;
+    line-height: 42px;
+    color: #070707;
+    margin-bottom: 47px;
+    text-align: center;
+}
+
+.title-Portfolio .banner{
+    margin-bottom: 44.88px;
+}
+
+.title-Portfolio{
+    text-align: center;
+}
+
+.title-Portfolio .banner:nth-child(2){
+    margin-top: 0;
+}
+
+.title-Portfolio .banner:nth-child(4){
+    margin-top: 99px;
+}
+
+.title-Portfolio .banner:nth-child(6){
+    margin-top: 99px;
+}
+
+.title-Portfolio a{
+    font-family: sans-serif;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    text-decoration-line: underline;
+    color: #070707;
+}
+.footer{
+    height: 622px;
+    width: 1445px;
+}
+.Contacts{
+    text-align: center;
+}
+.title-contacts{
+    display: flex;
+    flex-direction: column;
+}
+.title-contacts h1{
+    padding-top: 114px;
+    font-family: 'Gilroy-Bold';
+    font-size: 34px;
+    line-height: 42px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #070707;
+}
+.Contacts .title-contacts p{
+    font-family:sans-serif 'Gilroy-medium';
+    font-size: 18px;
+    padding-top:45px ;
+    margin-bottom: 30px;
+    line-height: 22px;
+    text-align: center;
+    color: #828282;  
+}
+.title-contacts h3{
+    font-family: 'Gilroy-Medium';
+    font-size: 18px;
+    line-height: 22px;
+    color: #070707;
+    margin-bottom: 30px;
+}
+.Contacts .title-contacts button{
+    font-family: 'Gilroy-Bold';
+    font-size: 18px;
+    line-height: 22px;
+    color: #FFFFFF;
+    background-color: #070707;
+    margin: 0 auto;
+    width: 180px;
+    height: 42px;
+    border-radius: 50px;
+}
+.contacts-icon{
+    padding-top: 80px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 342px;
+    height: 42px;
+}
+.contacts-icon img{
+    width: 40px;
+    height: 40px;
+}
+.button-media{
+display: none;
+}
+.cls{
+    display: none;
+}
+
+
+
+
+/* media */
+@media only screen and (max-width: 600px) {
+    body {
+        width: 375px;
+        height: 4435px;     
+        margin: 0 auto;   
+    }
+    .container{
+       width: 315px;
+       margin: 0 auto;
+       position: relative;
+    }
+    .vector{
+        display: none;
+    }
+    .button-media{
+        margin-top: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: column;
+        background-color: #FFFFFF;
+        width: 33px;
+        height: 19.9px;
+    }
+    .about-author{
+        position: relative;
+    }
+    .rectangle{
+        width: 33px;
+        background-color: #070707;
+        height: 3.84px;
+    }
+    nav{
+        display: none;
+        position: absolute;
+        background-color: #fffdfd;
+        z-index: 9999;
+        width: 375px;
+        height: 580px;
+    }
+    header .container{
+        position: relative;
+    }
+    .navigation{
+        margin-right:280px ;
+        display: flex;
+        align-items: center;
+        margin-top: 66px;
+        margin-bottom: 32px;
+        flex-direction: column;
+    }
+    .navigation li{
+        margin-top: 68px;
+        margin-left: 16px;
+        width: 40px;
+        font-size: 34px;
+        font-weight: 600;
+        font-family: sans-serif;
+        text-align: left;
+    }
+    .navigation li:nth-child(1){
+        margin-top: 0px;
+    }
+    .about-author .rus-eng{
+        display: none;
+    }
+    .cls{
+        position: absolute;
+        display: block;
+        width: 30px;
+        height: 30px;
+        border: none;
+        top: -5px;
+        right: 30px;
+        background: #FFFFFF;
+    }
+    .cls img{
+        width:100% ;
+        height: 100%;
+    }
+    .mobilka{
+        padding-top:70px ;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: space-between;
+        position: absolute;
+        bottom: -60px;
+        right: -30px;
+    }
+    .closer{
+        width: 40px;
+        height: 40px;
+        background: url(./img/x-button.png);
+    }
+    .mobilka .rus-eng{
+        display: flex;
+        font-size: 37px;
+        align-items: center;
+        transform: rotate(90deg);
+    }
+    .mobilka .rus-eng .ru{
+        font-size: 30px;
+    }
+    .mobilka .rus-eng .eng{
+        font-size: 30px;
+    }
+    nav .container{
+        width: 325px;
+        margin: 0 autos;
+    }
+    .closer{
+        width: 30px;
+        height: 30px;
+    }
+    .author-img{
+        width: 316.5px;
+        overflow: hidden;
+        background-image: url(./img/BSPP2266\ \(2\).png);
+    }
+    .about-author .job{
+        margin-top: 17px;
+        font-family: sans-serif;
+        font-size: 18px;
+        line-height: 22px;
+        color: #070707
+    }
+    .about-author {
+        margin-bottom: 50px;
+        display: flex;
+        width: 200px;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+    .media-about-author{
+        padding-top: 30px;
+        display: flex;
+        justify-content: space-between;
+    }
+    .name{
+        font-family: sans-serif;
+        font-size: 47px;
+        line-height: 58px;
+        letter-spacing: 0em;
+        text-align: left;
+    }
+    .job{
+        font-family: sans-serif;
+        font-size: 18px;
+        line-height: 22px;
+        letter-spacing: 0em;
+        text-align: left;
+    }
+    .About-me{
+
+        width: 390px;
+    }
+    .title-about-me {
+        width: 315px;
+    }
+    .Skills{
+        width: 390px;
+        height: 1421px;
+    }
+    .title-skills {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .skills-group{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    .group-pr{
+        margin-top: 70px;
+    }
+    .Portfolio{
+        width: 375px;
+        height: 1318px;
+    }
+    .Portfolio img{
+        width: 316px;
+        height: 170px;
+        margin-bottom: 33px;
+    }
+}
