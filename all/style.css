@@ -100,7 +100,10 @@ body{
 .author-img{
     width: 943.61px;
     height: 387px;
-    background: url(./img/Denis-img.png);
+    background: url(./img/mi.jpg);
+    background-position: top; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; 
     margin-bottom: 100px;
 }
 
@@ -391,7 +394,10 @@ a{
     text-decoration: none;
 }
 
-
+.banner img{
+    width: 940px;
+    height: 550px;
+}
 
 /* media */
 @media only screen and (max-width: 600px) {
@@ -556,7 +562,7 @@ a{
     }
     .Skills{
         width: 390px;
-        height: 1421px;
+        height: 1471px;
     }
     .title-skills {
         display: flex;
@@ -594,4 +600,60 @@ a{
 }
 .main-img{
     display: none;
+}
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px; /* Скрыто за пределами экрана */
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    color: white;
+    transition: 0.3s ease; /* Анимация появления */
+    overflow: hidden;
+    z-index: 1000;
+    padding-top: 20px;
+}
+.sidebar .nav-bar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar .nav-bar ul li {
+    padding: 15px 20px;
+}
+
+.sidebar .nav-bar ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+}
+
+.sidebar .nav-bar ul li a:hover {
+    background-color: #575757;
+}
+button-media{
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    font-size: 24px;
+    padding: 10px 15px;
+    cursor: pointer;
+    z-index: 1001;
+}
+.sidebar.active {
+    left: 0;
+}
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* полупрозрачный черный */
+    z-index: 999;
+    display: none; /* Изначально скрыт */
 }
