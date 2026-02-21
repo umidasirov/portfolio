@@ -1,266 +1,233 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Umidjon</title>
+    <title>Umidjon Ashirboyev - Frontend Developer</title>
     <link rel="stylesheet" href="./all/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
-        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
 </head>
-
 <body>
+    <!-- Header / Navigation -->
     <header>
-
         <nav>
             <div class="container">
-                <ul class="navigation">
-                    <a href="#">
-                        <li class="home" id="home">
-                            Home
-                        </li>
-                    </a>
-                    <a href="#AboutMe">
-                        <li class="about-me" id="About-me">
-                            About me
-                        </li>
-                    </a>
-                    <a href="#Skills">
-                        <li class="skills" id="skills">
-                            Skills
-                        </li>
-                    </a>
-                    <a href="#Portfolio">
-                        <li class="partfolio" id="portfolio">
-                            Portfolio
-                        </li>
-                    </a>
-                    <a href="#Contacts">
-                        <li class="contacts" id="contacts">
-                            Contacts
-                        </li>
-                    </a>
-                </ul>
-                <button class="cls" id="cls">
-                    <img src="./all/img/x-button.png" alt="">
-                </button>
-                <div class="mobilka">
-                    <div class="rus-eng">
-                        <h4 class="eng" id="eng">
-                            Eng
-                        </h4>
-                        |
-                        <h4 class="ru" id="ru">
-                            Ru
-                        </h4>
+                <div class="nav-wrapper">
+                    <div class="logo">
+                        <a href="#home">UA</a>
+                    </div>
+                    <ul class="navigation">
+                        <li><a href="#home" class="active">Home</a></li>
+                        <li><a href="#AboutMe">About me</a></li>
+                        <li><a href="#Skills">Skills</a></li>
+                        <li><a href="#Portfolio">Portfolio</a></li>
+                        <li><a href="#Contacts">Contacts</a></li>
+                    </ul>
+                    <div class="lang-switch">
+                        <span class="eng active">En</span>
+                        <span class="separator">|</span>
+                        <span class="ru">Ru</span>
+                    </div>
+                    <div class="menu-btn" id="menuBtn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
                     </div>
                 </div>
             </div>
         </nav>
-
     </header>
-    <div class="container">
-        <div class="vector">
-            <!-- it's a vetor -->
+
+    <!-- Sidebar for mobile -->
+    <div id="sidebar" class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">UA</div>
+            <button class="close-btn" id="closeSidebar">&times;</button>
+        </div>
+        <div class="nav-bar">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#AboutMe">About</a></li>
+                <li><a href="#Skills">Skills</a></li>
+                <li><a href="#Portfolio">Portfolio</a></li>
+                <li><a href="#Contacts">Contact</a></li>
+            </ul>
+            <div class="sidebar-lang">
+                <span class="eng active">En</span>
+                <span class="separator">|</span>
+                <span class="ru">Ru</span>
+            </div>
         </div>
     </div>
-    <section class="title-home">
-        <div class="container">
-            <div class="media-about-author">
-                <div class="about-author">
-                    <div class="name">
-                        Umidjon <br>
-                        Ashirboyev
-                    </div>
+    <div id="overlay" class="overlay"></div>
 
-                    <div class="job">
-                        Frontend Developer <br>
-                        18 years old, Tashkent
-                    </div>
-
-                    <div class="rus-eng">
-                        <h4 class="eng" id="eng">
-                            Eng
-                        </h4>
-                    </div>
-                </div>
-
-                <div class="button-media">
-                    <div class="rectangle"></div>
-                    <div class="rectangle"></div>
-                    <div class="rectangle"></div>
-                </div>
-                <!-- sidebar -->
-                <div id="sidebar" class="sidebar">
-                    <div class="nav-bar">
-                        <ul>
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#AboutMe">About</a></li>
-                            <li><a href="#Skills">Skills</a></li>
-                            <li><a href="#Portfolio">Portfolio</a></li>
-                            <li><a href="#Contacts">Contact</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-
-
-            <div class="author-img">
-                <img src="./all/img/Author.png" alt="" class="main-img">
-                <img src="" alt="" class="maing-img-desktop">
-            </div>
-        </div>
-    </section>
-    <section class="About-me" id="AboutMe">
-        <div class="container">
-            <div class="title-about-me">
-                <h1>
-                    About-me
-                </h1>
-                <p>
-                    Hi, I'm Umidjon - Frontend developer from Tashkent. <br>
-                    I'm interested in programming and everything connected with it.
-                </p>
-                <p>
-                    I'm studying Artificial <br> Intelligence courses at TUIT.
-                </p>
-                <p>
-                    I am ready to work on excellent projects with wonderful people.
-                </p>
-            </div>
-        </div>
-
-    </section>
-    <section class="Skills" id="Skills">
-        <div class="container">
-            <div class="title-skills">
-                <h1>Skills</h1>
-                <p>
-                    I have worked with technologies such as
-                </p>
-                <div class="skills-group">
-                    <div class="group-pr">
-                        <i class="fa-brands fa-react"></i>
-                        <span>
-                            ReactJs
-                        </span>
-                        <div class="stars">
-                            <img src="./all/img/program-icon/Star.svg" alt="">
-                            <img src="./all/img/program-icon/Star.svg" alt="">
-                            <img src="./all/img/program-icon/Star.svg" alt="">
-                            <img src="./all/img/program-icon/Star.svg" alt="">
-                            <img src="./all/img/program-icon/Star grey (1).svg" alt="">
-                        </div>
-                    </div>
-                    <div class="group-pr">
-                        <i class="fa-brands fa-vuejs"></i>
-                        <span>
-                            VueJs
-                        </span>
-                        <div class="stars">
-                            <img src="./all/img/program-icon/Star.svg" alt="">
-                            <img src="./all/img/program-icon/Star.svg" alt="">
-                            <img src="./all/img/program-icon/Star.svg" alt="">
-                            <img src="./all/img/program-icon/Star grey (1).svg" alt="">
-                            <img src="./all/img/program-icon/Star grey (1).svg" alt="">
-                        </div>
-                    </div>
-                    <div class="group-pr">
-                        <i class="fa-brands fa-js"></i>
-                        <span>
-                            JavaScript
-                        </span>
-                        <div class="stars">
-                            <img src="./all/img/program-icon/Star.svg" alt="">
-                            <img src="./all/img/program-icon/Star.svg" alt="">
-                            <img src="./all/img/program-icon/Star.svg" alt="">
-                            <img src="./all/img/program-icon/Star.svg" alt="">
-                            <img src="./all/img/program-icon/Star grey (1).svg" alt="">
-                        </div>
-                    </div>
-                    <div class="group-pr">
-                        <i class="fa-brands fa-node-js"></i>
-                        <span>
-                            NodeJs
-                        </span>
-                        <div class="stars">
-                            <img src="./all/img/program-icon/Star.svg" alt="">
-                            <img src="./all/img/program-icon/Star.svg" alt="">
-                            <img src="./all/img/program-icon/Star grey (1).svg" alt="">
-                            <img src="./all/img/program-icon/Star grey (1).svg" alt="">
-                            <img src="./all/img/program-icon/Star grey (1).svg" alt="">
-                        </div>
-                    </div>
-                    <div class="group-pr" style="">
-                        <i class="fa-brands fa-python" style="color: rgb(12, 156, 240);"></i>
-                        <span>
-                            Python
-                        </span>
-                        <div class="stars">
-                            <img src="./all/img/program-icon/Star.svg" alt="">
-                            <img src="./all/img/program-icon/Star.svg" alt="">
-                            <img src="./all/img/program-icon/Star.svg" alt="">
-                            <img src="./all/img/program-icon/Star.svg" alt="">
-                            <img src="./all/img/program-icon/Star grey (1).svg" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="Portfolio" id="Portfolio">
-        <div class="container">
-            <div class="title-Portfolio">
-                <h1>
-                    Portfolio
-                </h1>
-                <!-- first banner -->
-                <div class="banner">
-                    <img src="./all/img/image1.png" alt="sloy 8">
-                </div>
-                <a href="https://happykidsuz.netlify.app/">happykidsuz - Fullstack app</a>
-                <!-- second-banner -->
-                <div class="banner">
-                    <img src="./all/img/image2.png" alt="sloy 8">
-                </div>
-                <a href="https://lmrs.netlify.app">MyRobo.uz (unfinished)</a>
-                <!-- third banner -->
-                <div class="banner">
-                    <img src="./all/img/imageproject2.png" alt="sloy 8">
-                </div>
-
-                <a href="https://weather-app-270-24.netlify.app">Weather App (in vuejs)</a>
-            </div>
-        </div>
-    </section>
-    <footer>
-        <div class="Contacts" id="Contacts">
+    <!-- Main Content -->
+    <main>
+        <!-- Home Section -->
+        <section class="home-section" id="home">
             <div class="container">
-                <div class="title-contacts">
-                    <h1> Contacts</h1>
-                    <h3>
-                        Want to know more or just have a chat? <br> You're welcome!
-                    </h3>
-                    <div class="contacts-icon">
-                        <a href="https://t.me/developer_id_26"><i class="fa-brands fa-telegram"></i></a>
-                        <a href="https://instagram.com/umid_dev_100"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="https://github.com/umidasirov"><i class="fa-brands fa-github"></i></a>
+                <div class="home-content">
+                    <div class="home-text">
+                        <h1 class="name">Umidjon <br> Ashirboyev</h1>
+                        <p class="job">Frontend Developer <br> 18 years old, Tashkent</p>
+                        <div class="social-links">
+                            <a href="https://t.me/developer_id_26"><i class="fa-brands fa-telegram"></i></a>
+                            <a href="https://instagram.com/umid_dev_100"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="https://github.com/umidasirov"><i class="fa-brands fa-github"></i></a>
+                        </div>
                     </div>
-                    <p>
-                        Like me on <br>
-                        Instagram, Github, Facebook
-                    </p>
+                    <div class="home-image">
+                        <img src="./all/img/Author.png" alt="Umidjon Ashirboyev" class="main-img">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section class="about-section" id="AboutMe">
+            <div class="container">
+                <h2 class="section-title">About me</h2>
+                <div class="about-content">
+                    <p>Hi, I'm Umidjon - Frontend developer from Tashkent. I'm interested in programming and everything connected with it.</p>
+                    <p>I'm studying Artificial Intelligence courses at TUIT.</p>
+                    <p>I am ready to work on excellent projects with wonderful people.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="skills-section" id="Skills">
+            <div class="container">
+                <h2 class="section-title">Skills</h2>
+                <p class="section-subtitle">I have worked with technologies such as</p>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <i class="fa-brands fa-react"></i>
+                        <h3>ReactJs</h3>
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fa-brands fa-vuejs"></i>
+                        <h3>VueJs</h3>
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fa-brands fa-js"></i>
+                        <h3>JavaScript</h3>
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fa-brands fa-node-js"></i>
+                        <h3>NodeJs</h3>
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fa-brands fa-python"></i>
+                        <h3>Python</h3>
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section class="portfolio-section" id="Portfolio">
+            <div class="container">
+                <h2 class="section-title">Portfolio</h2>
+                <div class="portfolio-grid">
+                    <div class="portfolio-item">
+                        <img src="./all/img/image1.png" alt="Happy Kids Uzbekistan">
+                        <h3>Happy Kids Uzbekistan</h3>
+                        <p>Fullstack app for kids education</p>
+                        <a href="https://happykidsuz.netlify.app/" target="_blank" class="project-link">View Project <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="./all/img/image2.png" alt="MyRobo.uz">
+                        <h3>MyRobo.uz</h3>
+                        <p>Robotics learning platform (in progress)</p>
+                        <a href="https://lmrs.netlify.app" target="_blank" class="project-link">View Project <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="./all/img/imageproject2.png" alt="Weather App">
+                        <h3>Weather App</h3>
+                        <p>Vue.js based weather application</p>
+                        <a href="https://weather-app-270-24.netlify.app" target="_blank" class="project-link">View Project <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section" id="Contacts">
+            <div class="container">
+                <h2 class="section-title">Contacts</h2>
+                <h3 class="contact-subtitle">Want to know more or just have a chat? You're welcome!</h3>
+                
+                <!-- Contact Form (sends to Telegram) -->
+                <div class="contact-form-container">
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Your name" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder="Your message" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn" id="submitBtn">
+                            <span>Send message</span>
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </form>
+                    <div id="formMessage" class="form-message"></div>
                 </div>
 
+                <div class="social-icons">
+                    <a href="https://t.me/developer_id_26" target="_blank"><i class="fa-brands fa-telegram"></i></a>
+                    <a href="https://instagram.com/umid_dev_100" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://github.com/umidasirov" target="_blank"><i class="fa-brands fa-github"></i></a>
+                </div>
+                <p class="contact-text">Like me on Instagram, Github, Telegram</p>
             </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Umidjon Ashirboyev. All rights reserved.</p>
         </div>
     </footer>
+
+    <script src="./all/script.js"></script>
 </body>
-<script src="./all/script.js"></script>
-
-
 </html>
