@@ -87,7 +87,7 @@ const submitBtn = document.getElementById('submitBtn');
 
 // Telegram bot configuration
 const TELEGRAM_BOT_TOKEN = '8514142968:AAEj82ZobPep9_CVKG3jFrPfgWGZGvUSt2g'; // Replace with your bot token
-const TELEGRAM_CHAT_ID = '8003183441'; // Replace with your chat ID
+const TELEGRAM_CHAT_ID = '-1003848661157'; // Replace with your chat ID
 
 contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
