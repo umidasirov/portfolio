@@ -1,561 +1,392 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Umidjon Ashirboyev - Full Stack Developer</title>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W02BT0SXBS"></script>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="./all/style.css">
-    <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="./all/script.js"></script>
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- AOS Animation -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-    <!-- Typed.js -->
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-    <!-- AOS Animation -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
-<body class="dark:bg-gray-900 transition-colors">
+<body>
     <!-- Loading Screen -->
-    <div id="loading" class="fixed inset-0 bg-white dark:bg-gray-900 z-50 flex items-center justify-center transition-opacity">
-        <div class="text-center">
-            <div class="w-20 h-20 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-            <p class="text-gray-600 dark:text-gray-300" data-i18n="loading">Loading...</p>
-        </div>
+    <div class="loading" id="loading">
+        <div class="loading-spinner"></div>
     </div>
 
     <!-- Navigation -->
-    <nav class="fixed w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-lg z-40 border-b border-gray-200 dark:border-gray-700">
-        <div class="container mx-auto px-6 py-4">
-            <div class="flex items-center justify-between">
-                <!-- Logo -->
-                <a href="#home" class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                    UA
-                </a>
-
-                <!-- Desktop Menu -->
-                <div class="hidden md:flex items-center space-x-1">
-                    <a href="#home" class="nav-link" data-i18n="nav.home" data-nav="home">Home</a>
-                    <a href="#about" class="nav-link" data-i18n="nav.about" data-nav="about">About</a>
-                    <a href="#skills" class="nav-link" data-i18n="nav.skills" data-nav="skills">Skills</a>
-                    <a href="#portfolio" class="nav-link" data-i18n="nav.portfolio" data-nav="portfolio">Portfolio</a>
-                    <a href="#contact" class="nav-link" data-i18n="nav.contact" data-nav="contact">Contact</a>
+    <nav>
+        <div class="nav-wrapper">
+            <div class="logo">
+                <a href="#home">UA</a>
+            </div>
+            
+            <ul class="navigation">
+                <li><a href="#home" class="nav-link" data-i18n="nav.home" data-nav="home">Home</a></li>
+                <li><a href="#about" class="nav-link" data-i18n="nav.about" data-nav="about">About</a></li>
+                <li><a href="#skills" class="nav-link" data-i18n="nav.skills" data-nav="skills">Skills</a></li>
+                <li><a href="#portfolio" class="nav-link" data-i18n="nav.portfolio" data-nav="portfolio">Portfolio</a></li>
+                <li><a href="#contact" class="nav-link" data-i18n="nav.contact" data-nav="contact">Contact</a></li>
+            </ul>
+            
+            <div class="nav-controls">
+                <div class="lang-switch">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="ru">RU</button>
                 </div>
-
-                <!-- Right Side Controls -->
-                <div class="flex items-center space-x-4">
-                    <!-- Language Switcher -->
-                    <div class="flex items-center bg-gray-100 dark:bg-gray-800 rounded-lg p-1">
-                        <button class="lang-btn px-3 py-1 text-sm font-medium" data-lang="en">EN</button>
-                        <button class="lang-btn px-3 py-1 text-sm font-medium" data-lang="ru">RU</button>
-                    </div>
-
-                    <!-- Theme Toggle -->
-                    <button class="theme-toggle" id="themeToggle">
-                        <i class="fas fa-moon dark:hidden"></i>
-                        <i class="fas fa-sun hidden dark:block"></i>
-                    </button>
-
-                    <!-- Mobile Menu Button -->
-                    <button class="md:hidden text-2xl" id="menuBtn">
-                        <i class="fas fa-bars"></i>
-                    </button>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="menu-btn" id="menuBtn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </div>
             </div>
-
-            <!-- Mobile Menu -->
-            <div id="mobileMenu" class="hidden md:hidden mt-4 pb-4">
-                <div class="flex flex-col space-y-2">
-                    <a href="#home" class="nav-link block" data-nav="home">Home</a>
-                    <a href="#about" class="nav-link block" data-nav="about">About</a>
-                    <a href="#skills" class="nav-link block" data-nav="skills">Skills</a>
-                    <a href="#portfolio" class="nav-link block" data-nav="portfolio">Portfolio</a>
-                    <a href="#contact" class="nav-link block" data-nav="contact">Contact</a>
-                </div>
-            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="#home" class="nav-link" data-nav="home">Home</a>
+            <a href="#about" class="nav-link" data-nav="about">About</a>
+            <a href="#skills" class="nav-link" data-nav="skills">Skills</a>
+            <a href="#portfolio" class="nav-link" data-nav="portfolio">Portfolio</a>
+            <a href="#contact" class="nav-link" data-nav="contact">Contact</a>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="min-h-screen flex items-center justify-center pt-20 relative overflow-hidden">
-        <!-- Background Elements -->
-        <div class="absolute inset-0 -z-10">
-            <div class="absolute top-20 left-10 w-72 h-72 bg-blue-500/20 rounded-full blur-3xl animate-pulse-glow"></div>
-            <div class="absolute bottom-20 right-10 w-72 h-72 bg-purple-500/20 rounded-full blur-3xl animate-pulse-glow"></div>
-        </div>
-
-        <div class="container mx-auto px-6 py-20">
-            <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
-                <!-- Text Content -->
-                <div class="lg:w-1/2 text-center lg:text-left" data-aos="fade-right">
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-                        <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                            Umidjon
-                        </span>
-                        <br />
-                        <span data-i18n="hero.name">Ashirboyev</span>
+    <section id="home" class="home-section">
+        <div class="nav-wrapper">
+            <div class="home-content">
+                <div class="home-text" data-aos="fade-right">
+                    <h1 class="name">
+                        Umidjon <br>
+                        <span data-i18n="hero.surname">Ashirboyev</span>
                     </h1>
-                    
-                    <div class="text-2xl md:text-3xl text-gray-600 dark:text-gray-300 mb-6">
+                    <div class="job">
                         <span class="typed-text"></span>
                     </div>
+                    <p data-i18n="hero.description">Frontend & Full Stack Developer from Tashkent. Creating beautiful and functional web experiences.</p>
                     
-                    <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-lg mx-auto lg:mx-0" data-i18n="hero.description">
-                        Frontend & Full Stack Developer from Tashkent. Creating beautiful and functional web experiences.
-                    </p>
-                    
-                    <div class="flex flex-wrap gap-4 justify-center lg:justify-start">
+                    <div class="hero-buttons">
                         <a href="#contact" class="btn-primary" data-i18n="hero.hireBtn">Hire Me</a>
-                        <a href="#portfolio" class="px-6 py-3 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white font-semibold rounded-xl hover:shadow-lg transition-all" data-i18n="hero.workBtn">My Work</a>
-                    </div>
-                    
-                    <!-- Social Links -->
-                    <div class="flex gap-4 mt-8 justify-center lg:justify-start">
-                        <a href="https://github.com/umidasirov" target="_blank" class="w-12 h-12 bg-gray-100 dark:bg-gray-800 rounded-xl flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
-                            <i class="fab fa-github text-xl"></i>
-                        </a>
-                        <a href="https://t.me/developer_id_26" target="_blank" class="w-12 h-12 bg-gray-100 dark:bg-gray-800 rounded-xl flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
-                            <i class="fab fa-telegram text-xl"></i>
-                        </a>
-                        <a href="https://instagram.com/umid_dev_100" target="_blank" class="w-12 h-12 bg-gray-100 dark:bg-gray-800 rounded-xl flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
-                            <i class="fab fa-instagram text-xl"></i>
-                        </a>
+                        <div class="social-links">
+                            <a href="https://github.com/umidasirov" target="_blank"><i class="fab fa-github"></i></a>
+                            <a href="https://t.me/developer_id_26" target="_blank"><i class="fab fa-telegram"></i></a>
+                            <a href="https://instagram.com/umid_dev_100" target="_blank"><i class="fab fa-instagram"></i></a>
+                        </div>
                     </div>
                 </div>
                 
-                <!-- Image -->
-                <div class="lg:w-1/2 relative" data-aos="fade-left">
-                    <div class="relative w-64 h-64 md:w-80 md:h-80 mx-auto">
-                        <div class="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full blur-3xl opacity-30 animate-pulse"></div>
-                        <img src="./all/img/Author.png" alt="Umidjon" class="relative w-full h-full object-cover rounded-full border-4 border-white dark:border-gray-800 shadow-2xl">
-                    </div>
+                <div class="home-image" data-aos="fade-left">
+                    <img src="./all/img/Author.png" alt="Umidjon">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20 bg-gray-50 dark:bg-gray-800/50">
-        <div class="container mx-auto px-6">
+    <section id="about" class="about-section">
+        <div class="nav-wrapper">
             <h2 class="section-title" data-i18n="about.title">About Me</h2>
             
-            <div class="max-w-4xl mx-auto">
-                <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <!-- Stats -->
-                    <div class="grid grid-cols-2 gap-6" data-aos="fade-right">
-                        <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl text-center shadow-lg">
-                            <div class="text-3xl font-bold text-blue-600 mb-2">2+</div>
-                            <div class="text-gray-600 dark:text-gray-300" data-i18n="about.yearsExp">Years Experience</div>
-                        </div>
-                        <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl text-center shadow-lg">
-                            <div class="text-3xl font-bold text-purple-600 mb-2">15+</div>
-                            <div class="text-gray-600 dark:text-gray-300" data-i18n="about.projects">Projects</div>
-                        </div>
-                        <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl text-center shadow-lg">
-                            <div class="text-3xl font-bold text-green-600 mb-2">10+</div>
-                            <div class="text-gray-600 dark:text-gray-300" data-i18n="about.clients">Happy Clients</div>
-                        </div>
-                        <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl text-center shadow-lg">
-                            <div class="text-3xl font-bold text-yellow-600 mb-2">24/7</div>
-                            <div class="text-gray-600 dark:text-gray-300" data-i18n="about.support">Support</div>
-                        </div>
+            <div class="about-content">
+                <div class="about-stats" data-aos="fade-up">
+                    <div class="stat-card">
+                        <div class="stat-number">2+</div>
+                        <div class="stat-label" data-i18n="about.yearsExp">Years Experience</div>
                     </div>
-                    
-                    <!-- Description -->
-                    <div class="space-y-6" data-aos="fade-left">
-                        <p class="text-lg text-gray-600 dark:text-gray-300" data-i18n="about.desc1">
-                            Hi, I'm Umidjon - Frontend & Full Stack Developer from Tashkent. 
-                            I'm passionate about creating beautiful and functional web applications.
-                        </p>
-                        <p class="text-lg text-gray-600 dark:text-gray-300" data-i18n="about.desc2">
-                            Currently studying Artificial Intelligence at TUIT and working with 
-                            modern technologies like React, Vue.js, Python, and Django.
-                        </p>
-                        <p class="text-lg text-gray-600 dark:text-gray-300" data-i18n="about.desc3">
-                            I'm ready to work on excellent projects with wonderful people and turn 
-                            ideas into reality.
-                        </p>
+                    <div class="stat-card">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label" data-i18n="about.projects">Projects</div>
                     </div>
+                    <div class="stat-card">
+                        <div class="stat-number">10+</div>
+                        <div class="stat-label" data-i18n="about.clients">Happy Clients</div>
+                    </div>
+                </div>
+                
+                <div class="about-text" data-aos="fade-up" data-aos-delay="100">
+                    <p data-i18n="about.desc1">Hi, I'm Umidjon - Frontend & Full Stack Developer from Tashkent. I'm passionate about creating beautiful and functional web applications.</p>
+                    <p data-i18n="about.desc2">Currently studying Artificial Intelligence at TUIT and working with modern technologies like React, Vue.js, Python, and Django.</p>
+                    <p data-i18n="about.desc3">I'm ready to work on excellent projects with wonderful people and turn ideas into reality.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Skills Section (NEW - Chiroyli qilingan) -->
-    <section id="skills" class="py-20">
-        <div class="container mx-auto px-6">
-            <h2 class="section-title" data-i18n="skills.title">My Skills</h2>
+    <!-- Skills Section -->
+   <!-- Skills Section -->
+<section id="skills" class="skills-section">
+    <div class="nav-wrapper">
+        <h2 class="section-title" data-i18n="skills.title">My Skills</h2>
+        
+        <div class="skills-grid">
+            <!-- Frontend Card -->
+            <div class="skill-card" data-aos="fade-up">
+                <div class="skill-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h3 data-i18n="skills.frontend">Frontend</h3>
+                
+                <div class="skill-items">
+                    <div class="skill-item">
+                        <span>React</span>
+                        <span class="skill-percent">75%</span>
+                        <div class="progress-bar"><div class="progress" style="width: 75%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <span>Redux</span>
+                        <span class="skill-percent">70%</span>
+                        <div class="progress-bar"><div class="progress" style="width: 70%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <span>JavaScript</span>
+                        <span class="skill-percent">80%</span>
+                        <div class="progress-bar"><div class="progress" style="width: 80%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <span>Tailwind CSS</span>
+                        <span class="skill-percent">70%</span>
+                        <div class="progress-bar"><div class="progress" style="width: 70%"></div></div>
+                    </div>
+                </div>
+            </div>
             
-            <!-- Skill Categories -->
-            <div class="grid lg:grid-cols-3 gap-8">
-                <!-- Frontend Skills -->
-                <div class="bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-xl" data-aos="fade-up">
-                    <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-2xl flex items-center justify-center mb-6">
-                        <i class="fas fa-code text-3xl text-blue-600"></i>
+            <!-- Backend Card -->
+            <div class="skill-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="skill-icon">
+                    <i class="fas fa-server"></i>
+                </div>
+                <h3 data-i18n="skills.backend">Backend</h3>
+                
+                <div class="skill-items">
+                    <div class="skill-item">
+                        <span>Python/Django</span>
+                        <span class="skill-percent">75%</span>
+                        <div class="progress-bar"><div class="progress" style="width: 75%"></div></div>
                     </div>
-                    <h3 class="text-2xl font-bold mb-6" data-i18n="skills.frontend">Frontend Development</h3>
-                    
-                    <div class="space-y-6">
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="font-medium">React / Next.js</span>
-                                <span class="text-blue-600">90%</span>
-                            </div>
-                            <div class="skill-progress">
-                                <div class="skill-progress-bar" style="width: 90%"></div>
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="font-medium">Vue.js / Nuxt</span>
-                                <span class="text-blue-600">85%</span>
-                            </div>
-                            <div class="skill-progress">
-                                <div class="skill-progress-bar" style="width: 85%"></div>
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="font-medium">JavaScript / TypeScript</span>
-                                <span class="text-blue-600">95%</span>
-                            </div>
-                            <div class="skill-progress">
-                                <div class="skill-progress-bar" style="width: 95%"></div>
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="font-medium">Tailwind CSS</span>
-                                <span class="text-blue-600">90%</span>
-                            </div>
-                            <div class="skill-progress">
-                                <div class="skill-progress-bar" style="width: 90%"></div>
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="font-medium">Redux / Redux Toolkit</span>
-                                <span class="text-blue-600">85%</span>
-                            </div>
-                            <div class="skill-progress">
-                                <div class="skill-progress-bar" style="width: 85%"></div>
-                            </div>
-                        </div>
+                    <div class="skill-item">
+                        <span>Node.js (basic)</span>
+                        <span class="skill-percent">50%</span>
+                        <div class="progress-bar"><div class="progress" style="width: 50%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <span>REST API</span>
+                        <span class="skill-percent">70%</span>
+                        <div class="progress-bar"><div class="progress" style="width: 70%"></div></div>
                     </div>
                 </div>
-                
-                <!-- Backend Skills -->
-                <div class="bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-xl" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-16 h-16 bg-purple-100 dark:bg-purple-900/30 rounded-2xl flex items-center justify-center mb-6">
-                        <i class="fas fa-server text-3xl text-purple-600"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-6" data-i18n="skills.backend">Backend Development</h3>
-                    
-                    <div class="space-y-6">
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="font-medium">Python / Django</span>
-                                <span class="text-purple-600">88%</span>
-                            </div>
-                            <div class="skill-progress">
-                                <div class="skill-progress-bar" style="width: 88%"></div>
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="font-medium">Node.js / Express</span>
-                                <span class="text-purple-600">82%</span>
-                            </div>
-                            <div class="skill-progress">
-                                <div class="skill-progress-bar" style="width: 82%"></div>
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="font-medium">PostgreSQL</span>
-                                <span class="text-purple-600">80%</span>
-                            </div>
-                            <div class="skill-progress">
-                                <div class="skill-progress-bar" style="width: 80%"></div>
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="font-medium">MongoDB</span>
-                                <span class="text-purple-600">75%</span>
-                            </div>
-                            <div class="skill-progress">
-                                <div class="skill-progress-bar" style="width: 75%"></div>
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="font-medium">REST API</span>
-                                <span class="text-purple-600">90%</span>
-                            </div>
-                            <div class="skill-progress">
-                                <div class="skill-progress-bar" style="width: 90%"></div>
-                            </div>
-                        </div>
-                    </div>
+            </div>
+            
+            <!-- Tools Card -->
+            <div class="skill-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="skill-icon">
+                    <i class="fas fa-tools"></i>
                 </div>
+                <h3 data-i18n="skills.tools">Tools</h3>
                 
-                <!-- Tools & Others -->
-                <div class="bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-xl" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-16 h-16 bg-green-100 dark:bg-green-900/30 rounded-2xl flex items-center justify-center mb-6">
-                        <i class="fas fa-tools text-3xl text-green-600"></i>
+                <div class="skill-items">
+                    <div class="skill-item">
+                        <span>Git/GitHub</span>
+                        <span class="skill-percent">75%</span>
+                        <div class="progress-bar"><div class="progress" style="width: 75%"></div></div>
                     </div>
-                    <h3 class="text-2xl font-bold mb-6" data-i18n="skills.tools">Tools & Others</h3>
-                    
-                    <div class="space-y-6">
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="font-medium">Git / GitHub</span>
-                                <span class="text-green-600">95%</span>
-                            </div>
-                            <div class="skill-progress">
-                                <div class="skill-progress-bar" style="width: 95%"></div>
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="font-medium">Docker</span>
-                                <span class="text-green-600">75%</span>
-                            </div>
-                            <div class="skill-progress">
-                                <div class="skill-progress-bar" style="width: 75%"></div>
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="font-medium">Figma</span>
-                                <span class="text-green-600">85%</span>
-                            </div>
-                            <div class="skill-progress">
-                                <div class="skill-progress-bar" style="width: 85%"></div>
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="font-medium">AWS Basics</span>
-                                <span class="text-green-600">70%</span>
-                            </div>
-                            <div class="skill-progress">
-                                <div class="skill-progress-bar" style="width: 70%"></div>
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="font-medium">CI/CD</span>
-                                <span class="text-green-600">80%</span>
-                            </div>
-                            <div class="skill-progress">
-                                <div class="skill-progress-bar" style="width: 80%"></div>
-                            </div>
-                        </div>
+                    <div class="skill-item">
+                        <span>Docker</span>
+                        <span class="skill-percent">50%</span>
+                        <div class="progress-bar"><div class="progress" style="width: 50%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <span>Figma</span>
+                        <span class="skill-percent">65%</span>
+                        <div class="progress-bar"><div class="progress" style="width: 65%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <span>CI/CD (basic)</span>
+                        <span class="skill-percent">50%</span>
+                        <div class="progress-bar"><div class="progress" style="width: 50%"></div></div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+</section>
+</div>
     </section>
 
-    <!-- Portfolio Section (NEW - Chiroyli grid) -->
-    <section id="portfolio" class="py-20 bg-gray-50 dark:bg-gray-800/50">
-        <div class="container mx-auto px-6">
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio-section">
+        <div class="nav-wrapper">
             <h2 class="section-title" data-i18n="portfolio.title">My Portfolio</h2>
             
-            <!-- Portfolio Filter -->
-            <div class="flex flex-wrap gap-3 justify-center mb-12">
-                <button class="filter-btn active px-6 py-2 bg-blue-600 text-white rounded-full" data-filter="all" data-i18n="portfolio.all">All</button>
-                <button class="filter-btn px-6 py-2 bg-gray-200 dark:bg-gray-700 rounded-full hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors" data-filter="frontend" data-i18n="portfolio.frontend">Frontend</button>
-                <button class="filter-btn px-6 py-2 bg-gray-200 dark:bg-gray-700 rounded-full hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors" data-filter="fullstack" data-i18n="portfolio.fullstack">Full Stack</button>
-                <button class="filter-btn px-6 py-2 bg-gray-200 dark:bg-gray-700 rounded-full hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors" data-filter="django" data-i18n="portfolio.django">Django</button>
+            <div class="portfolio-filters">
+                <button class="filter-btn active" data-filter="all" data-i18n="portfolio.all">All</button>
+                <button class="filter-btn" data-filter="frontend" data-i18n="portfolio.frontend">Frontend</button>
+                <button class="filter-btn" data-filter="fullstack" data-i18n="portfolio.fullstack">Full Stack</button>
             </div>
             
-            <!-- Portfolio Grid -->
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Project 1 -->
-                <div class="portfolio-card" data-category="fullstack" data-aos="fade-up">
-                    <div class="relative overflow-hidden group">
-                        <img src="./all/img/image1.png" alt="Happy Kids" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
-                            <div class="text-white">
-                                <h4 class="text-xl font-bold">Happy Kids Uzbekistan</h4>
-                                <p class="text-sm opacity-90">Fullstack app for kids education</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex flex-wrap gap-2 mb-3">
-                            <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 text-sm rounded-full">React</span>
-                            <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-600 text-sm rounded-full">Django</span>
-                            <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-600 text-sm rounded-full">PostgreSQL</span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2">Happy Kids Uzbekistan</h3>
-                        <p class="text-gray-600 dark:text-gray-400 mb-4">Educational platform for children with interactive lessons</p>
-                        <a href="https://happykidsuz.netlify.app/" target="_blank" class="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium">
-                            <span data-i18n="portfolio.viewProject">View Project</span>
-                            <i class="fas fa-arrow-right ml-2"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Project 2 -->
-                <div class="portfolio-card" data-category="frontend" data-aos="fade-up" data-aos-delay="100">
-                    <div class="relative overflow-hidden group">
-                        <img src="./all/img/image2.png" alt="MyRobo" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
-                            <div class="text-white">
-                                <h4 class="text-xl font-bold">MyRobo.uz</h4>
-                                <p class="text-sm opacity-90">Robotics learning platform</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex flex-wrap gap-2 mb-3">
-                            <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 text-sm rounded-full">Vue.js</span>
-                            <span class="px-3 py-1 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-600 text-sm rounded-full">JavaScript</span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2">MyRobo.uz</h3>
-                        <p class="text-gray-600 dark:text-gray-400 mb-4">Platform for learning robotics and programming (in progress)</p>
-                        <a href="https://lmrs.netlify.app" target="_blank" class="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium">
-                            <span data-i18n="portfolio.viewProject">View Project</span>
-                            <i class="fas fa-arrow-right ml-2"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Project 3 -->
-                <div class="portfolio-card" data-category="frontend" data-aos="fade-up" data-aos-delay="200">
-                    <div class="relative overflow-hidden group">
-                        <img src="./all/img/imageproject2.png" alt="Weather App" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
-                            <div class="text-white">
-                                <h4 class="text-xl font-bold">Weather App</h4>
-                                <p class="text-sm opacity-90">Vue.js weather application</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex flex-wrap gap-2 mb-3">
-                            <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-600 text-sm rounded-full">Vue.js</span>
-                            <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 text-sm rounded-full">API</span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2">Weather App</h3>
-                        <p class="text-gray-600 dark:text-gray-400 mb-4">Real-time weather forecast with beautiful UI</p>
-                        <a href="https://weather-app-270-24.netlify.app" target="_blank" class="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium">
-                            <span data-i18n="portfolio.viewProject">View Project</span>
-                            <i class="fas fa-arrow-right ml-2"></i>
-                        </a>
-                    </div>
-                </div>
+            <div class="portfolio-grid">
+    <!-- Project 1 (mavjud) -->
+    <div class="portfolio-card" data-category="fullstack" data-aos="fade-up">
+        <div class="portfolio-image">
+            <img src="./all/img/image1.png" alt="Happy Kids">
+            <div class="portfolio-overlay">
+                <h4>Happy Kids</h4>
+                <p>Educational platform</p>
             </div>
+        </div>
+        <div class="portfolio-info">
+            <div class="portfolio-tags">
+                <span>React</span>
+                <span>Django</span>
+                <span>PostgreSQL</span>
+            </div>
+            <h3>Happy Kids Uzbekistan</h3>
+            <p>Fullstack app for kids education</p>
+            <a href="https://happykidsuz.netlify.app/" target="_blank" class="portfolio-link">
+                <span data-i18n="portfolio.viewProject">View Project</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+    
+    <!-- Project 2 (mavjud) -->
+    <div class="portfolio-card" data-category="frontend" data-aos="fade-up" data-aos-delay="100">
+        <div class="portfolio-image">
+            <img src="./all/img/image2.png" alt="MyRobo">
+            <div class="portfolio-overlay">
+                <h4>MyRobo.uz</h4>
+                <p>Robotics learning</p>
+            </div>
+        </div>
+        <div class="portfolio-info">
+            <div class="portfolio-tags">
+                <span>Vue.js</span>
+                <span>JavaScript</span>
+            </div>
+            <h3>MyRobo.uz</h3>
+            <p>Platform for learning robotics</p>
+            <a href="https://lmrs.netlify.app" target="_blank" class="portfolio-link">
+                <span data-i18n="portfolio.viewProject">View Project</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+    
+    <!-- Project 3 (YANGI - Edumark.uz) -->
+    <div class="portfolio-card" data-category="frontend" data-aos="fade-up" data-aos-delay="150">
+        <div class="portfolio-image">
+            <img src="./all/img/edumark.png" alt="Edumark.uz">
+            <div class="portfolio-overlay">
+                <h4>Edumark.uz</h4>
+                <p>Modern education platform</p>
+            </div>
+        </div>
+        <div class="portfolio-info">
+            <div class="portfolio-tags">
+                <span>React</span>
+                <span>Tailwind CSS</span>
+                <span>Redux Toolkit</span>
+            </div>
+            <h3>Edumark.uz</h3>
+            <p>Educational platform with modern UI/UX design</p>
+            <a href="https://edumark.uz" target="_blank" class="portfolio-link">
+                <span data-i18n="portfolio.viewProject">View Project</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+    
+    <!-- Project 4 (mavjud) -->
+    <div class="portfolio-card" data-category="frontend" data-aos="fade-up" data-aos-delay="200">
+        <div class="portfolio-image">
+            <img src="./all/img/imageproject2.png" alt="Weather App">
+            <div class="portfolio-overlay">
+                <h4>Weather App</h4>
+                <p>Real-time forecast</p>
+            </div>
+        </div>
+        <div class="portfolio-info">
+            <div class="portfolio-tags">
+                <span>Vue.js</span>
+                <span>API</span>
+            </div>
+            <h3>Weather App</h3>
+            <p>Real-time weather forecast</p>
+            <a href="https://weather-app-270-24.netlify.app" target="_blank" class="portfolio-link">
+                <span data-i18n="portfolio.viewProject">View Project</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+</div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20">
-        <div class="container mx-auto px-6">
+    <section id="contact" class="contact-section">
+        <div class="nav-wrapper">
             <h2 class="section-title" data-i18n="contact.title">Get In Touch</h2>
+            <p class="contact-subtitle" data-i18n="contact.subtitle">Let's talk about your project</p>
             
-            <div class="max-w-4xl mx-auto">
-                <div class="grid md:grid-cols-2 gap-12">
-                    <!-- Contact Info -->
-                    <div class="space-y-8" data-aos="fade-right">
-                        <h3 class="text-2xl font-bold mb-4" data-i18n="contact.info">Let's talk about your project</h3>
-                        
-                        <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-xl flex items-center justify-center flex-shrink-0">
-                                <i class="fas fa-phone text-blue-600"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold mb-1" data-i18n="contact.phone">Phone</h4>
-                                <p class="text-gray-600 dark:text-gray-300">+998 90 123 45 67</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-xl flex items-center justify-center flex-shrink-0">
-                                <i class="fas fa-envelope text-purple-600"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold mb-1" data-i18n="contact.email">Email</h4>
-                                <p class="text-gray-600 dark:text-gray-300">umidjon.dev@gmail.com</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-xl flex items-center justify-center flex-shrink-0">
-                                <i class="fas fa-location-dot text-green-600"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold mb-1" data-i18n="contact.location">Location</h4>
-                                <p class="text-gray-600 dark:text-gray-300" data-i18n="contact.address">Tashkent, Uzbekistan</p>
-                            </div>
+            <div class="contact-container">
+                <div class="contact-info" data-aos="fade-right">
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4 data-i18n="contact.phone">Phone</h4>
+                            <p>+998 77 498 29 11</p>
                         </div>
                     </div>
-                    
-                    <!-- Contact Form -->
-                    <div class="bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-xl" data-aos="fade-left">
-                        <form id="contactForm" class="space-y-6">
-                            <div>
-                                <input type="text" id="name" name="name" class="w-full px-4 py-3 bg-gray-100 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-600 transition" placeholder="Your Name" data-i18n-placeholder="contact.namePlaceholder" required>
-                            </div>
-                            
-                            <div>
-                                <textarea id="message" name="message" rows="4" class="w-full px-4 py-3 bg-gray-100 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-600 transition" placeholder="Your Message" data-i18n-placeholder="contact.messagePlaceholder" required></textarea>
-                            </div>
-                            
-                            <button type="submit" class="btn-primary w-full flex items-center justify-center gap-2" id="submitBtn">
-                                <span data-i18n="contact.sendBtn">Send Message</span>
-                                <i class="fas fa-paper-plane"></i>
-                            </button>
-                            
-                            <div id="formMessage" class="hidden p-4 rounded-xl"></div>
-                        </form>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4 data-i18n="contact.email">Email</h4>
+                            <p>umidasirov55@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-location-dot"></i>
+                        <div>
+                            <h4 data-i18n="contact.location">Location</h4>
+                            <p data-i18n="contact.address">Tashkent, Uzbekistan</p>
+                        </div>
                     </div>
                 </div>
+                
+                <div class="contact-form-container" data-aos="fade-right">
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-group">
+                            <input type="text" id="name" data-i18n-placeholder="contact.namePlaceholder" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="phone" placeholder="+998 (__) ___-__-__" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" rows="4" data-i18n-placeholder="contact.messagePlaceholder" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary" id="submitBtn">
+                            <span data-i18n="contact.sendBtn">Send Message</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                        <div id="formMessage" class="form-message"></div>
+                    </form>
+                </div>
             </div>
+            
+            <div class="social-icons">
+                <a href="https://instagram.com/umid_dev_100" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://t.me/developer_id_26" target="_blank"><i class="fab fa-telegram"></i></a>
+                <a href="https://github.com/umidasirov" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
+            <p class="contact-text" data-i18n="footer.copyright">© 2026 All rights reserved</p>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="text-2xl font-bold mb-4 md:mb-0">Umidjon Ashirboyev</div>
-                <div class="text-gray-400 text-sm" data-i18n="footer.copyright">
-                    © 2024 All rights reserved
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script src="./all/script.js"></script>
 </body>
 </html>
-
-

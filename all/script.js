@@ -1,39 +1,158 @@
- window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  
-  gtag('js', new Date());
-  gtag('config', 'G-W02BT0SXBS');
-
-// AOS Animation initialization
-AOS.init({
-    duration: 1000,
-    once: true,
-    offset: 100
-});
-
-// Loading Screen
-// Loading Screen
-// AOS Animation initialization
-AOS.init({
-    duration: 1000,
-    once: true,
-    offset: 100
-});
-
-// Loading Screen
-window.addEventListener('load', () => {
-    const loading = document.querySelector('.loading');
-    if (loading) {
-        setTimeout(() => {
-            loading.style.opacity = '0';
-            setTimeout(() => {
-                loading.style.display = 'none';
-            }, 500);
-        }, 500);
+// ===== 1. TRANSLATIONS =====
+const translations = {
+    en: {
+        'nav.home': 'Home',
+        'nav.about': 'About',
+        'nav.skills': 'Skills',
+        'nav.portfolio': 'Portfolio',
+        'nav.contact': 'Contact',
+        'hero.surname': 'Ashirboyev',
+        'hero.description': 'Frontend & Full Stack Developer from Tashkent. Creating beautiful and functional web experiences.',
+        'hero.hireBtn': 'Hire Me',
+        'about.title': 'About Me',
+        'about.yearsExp': 'Years Experience',
+        'about.projects': 'Projects',
+        'about.clients': 'Happy Clients',
+        'about.desc1': "Hi, I'm Umidjon - Frontend & Full Stack Developer from Tashkent. I'm passionate about creating beautiful and functional web applications.",
+        'about.desc2': 'Currently studying Artificial Intelligence at TUIT and working with modern technologies like React, Vue.js, Python, and Django.',
+        'about.desc3': "I'm ready to work on excellent projects with wonderful people and turn ideas into reality.",
+        'skills.title': 'My Skills',
+        'skills.frontend': 'Frontend',
+        'skills.backend': 'Backend',
+        'skills.tools': 'Tools',
+        'portfolio.title': 'My Portfolio',
+        'portfolio.all': 'All',
+        'portfolio.frontend': 'Frontend',
+        'portfolio.fullstack': 'Full Stack',
+        'portfolio.django': 'Django',
+        'portfolio.viewProject': 'View Project',
+        'contact.title': 'Get In Touch',
+        'contact.subtitle': "Let's talk about your project",
+        'contact.phone': 'Phone',
+        'contact.email': 'Email',
+        'contact.location': 'Location',
+        'contact.address': 'Tashkent, Uzbekistan',
+        'contact.namePlaceholder': 'Your Name',
+        'contact.messagePlaceholder': 'Your Message',
+        'contact.sendBtn': 'Send Message',
+        'footer.copyright': '© 2026 All rights reserved',
+        'msg.success': 'Sent successfully!',
+        'msg.error': 'Error. Try again.'
+    },
+    ru: {
+        'nav.home': 'Главная',
+        'nav.about': 'Обо мне',
+        'nav.skills': 'Навыки',
+        'nav.portfolio': 'Портфолио',
+        'nav.contact': 'Контакты',
+        'hero.surname': 'Аширбоев',
+        'hero.description': 'Frontend и Full Stack разработчик из Ташкента. Создаю красивые и функциональные веб-приложения.',
+        'hero.hireBtn': 'Связвться со мной',
+        'about.title': 'Обо мне',
+        'about.yearsExp': 'Лет опыта',
+        'about.projects': 'Проектов',
+        'about.clients': 'Довольных клиентов',
+        'about.desc1': 'Привет, я Умиджон - Frontend и Full Stack разработчик из Ташкента. Я увлечен созданием красивых и функциональных веб-приложений.',
+        'about.desc2': 'В настоящее время изучаю искусственный интеллект в ТУИТ и работаю с современными технологиями, такими как React, Vue.js, Python и Django.',
+        'about.desc3': 'Я готов работать над отличными проектами с замечательными людьми и воплощать идеи в реальность.',
+        'skills.title': 'Мои навыки',
+        'skills.frontend': 'Frontend',
+        'skills.backend': 'Backend',
+        'skills.tools': 'Инструменты',
+        'portfolio.title': 'Портфолио',
+        'portfolio.all': 'Все',
+        'portfolio.frontend': 'Frontend',
+        'portfolio.fullstack': 'Full Stack',
+        'portfolio.django': 'Django',
+        'portfolio.viewProject': 'Посмотреть проект',
+        'contact.title': 'Связаться',
+        'contact.subtitle': 'Давайте обсудим ваш проект',
+        'contact.phone': 'Телефон',
+        'contact.email': 'Почта',
+        'contact.location': 'Локация',
+        'contact.address': 'Ташкент, Узбекистан',
+        'contact.namePlaceholder': 'Ваше имя',
+        'contact.messagePlaceholder': 'Ваше сообщение',
+        'contact.sendBtn': 'Отправить',
+        'footer.copyright': '© 2026 Все права защищены',
+        'msg.success': 'Успешно отправлено!',
+        'msg.error': 'Ошибка. Попробуйте еще раз.'
     }
+};
+
+// ===== 2. LANGUAGE & THEME =====
+let currentLang = localStorage.getItem('lang') || 'en';
+const htmlElement = document.documentElement;
+
+function setLanguage(lang) {
+    currentLang = lang;
+    localStorage.setItem('lang', lang);
+    
+    // Update all text elements
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang][key]) {
+            el.textContent = translations[lang][key];
+        }
+    });
+    
+    // Update placeholders
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (translations[lang][key]) {
+            el.placeholder = translations[lang][key];
+        }
+    });
+    
+    // Update active language buttons
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+    });
+}
+
+// Initialize language
+setLanguage(currentLang);
+
+// Language button listeners
+document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => setLanguage(btn.getAttribute('data-lang')));
 });
 
-// Typed.js Animation
+// ===== 3. THEME TOGGLE =====
+const themeToggle = document.getElementById('themeToggle');
+const savedTheme = localStorage.getItem('theme');
+
+if (savedTheme === 'dark') {
+    htmlElement.classList.add('dark');
+    themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+} else {
+    themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+}
+
+themeToggle.addEventListener('click', () => {
+    htmlElement.classList.toggle('dark');
+    const isDark = htmlElement.classList.contains('dark');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    themeToggle.innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+});
+
+// ===== 4. LOADING SCREEN =====
+window.addEventListener('load', () => {
+    const loading = document.getElementById('loading');
+    loading.style.opacity = '0';
+    setTimeout(() => {
+        loading.style.display = 'none';
+    }, 500);
+});
+
+// ===== 5. AOS INIT =====
+AOS.init({
+    duration: 1000,
+    once: true,
+    offset: 100
+});
+
+// ===== 6. TYPED.JS =====
 const typed = new Typed('.typed-text', {
     strings: [
         'Frontend Developer',
@@ -46,231 +165,24 @@ const typed = new Typed('.typed-text', {
     loop: true
 });
 
-// Mobile Menu Toggle
+// ===== 7. MOBILE MENU =====
 const menuBtn = document.getElementById('menuBtn');
-const mobileMenu = document.getElementById('mobileMenu');
-const sidebar = document.getElementById('sidebar');
-const overlay = document.getElementById('overlay');
-const closeBtn = document.getElementById('closeSidebar');
+const mobileMenu = document.querySelector('.mobile-menu');
 
-if (menuBtn && mobileMenu) {
-    const menuIcon = menuBtn.querySelector('i');
-    
-    menuBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-        if (menuIcon) {
-            menuIcon.classList.toggle('fa-bars');
-            menuIcon.classList.toggle('fa-times');
-        }
-    });
-}
-
-// Sidebar functionality
-if (menuBtn && sidebar && overlay) {
-    menuBtn.addEventListener('click', () => {
-        sidebar.classList.toggle('active');
-        overlay.classList.toggle('active');
-        menuBtn.classList.toggle('active');
-    });
-}
-
-if (closeBtn && sidebar && overlay) {
-    closeBtn.addEventListener('click', () => {
-        sidebar.classList.remove('active');
-        overlay.classList.remove('active');
-        if (menuBtn) menuBtn.classList.remove('active');
-    });
-}
-
-if (overlay && sidebar && menuBtn) {
-    overlay.addEventListener('click', () => {
-        sidebar.classList.remove('active');
-        overlay.classList.remove('active');
-        menuBtn.classList.remove('active');
-    });
-}
+menuBtn.addEventListener('click', () => {
+    menuBtn.classList.toggle('active');
+    mobileMenu.classList.toggle('active');
+});
 
 // Close mobile menu on link click
-document.querySelectorAll('#mobileMenu a, .sidebar .nav-bar a').forEach(link => {
+document.querySelectorAll('.mobile-menu a').forEach(link => {
     link.addEventListener('click', () => {
-        if (mobileMenu) mobileMenu.classList.add('hidden');
-        if (sidebar) sidebar.classList.remove('active');
-        if (overlay) overlay.classList.remove('active');
-        if (menuBtn) {
-            menuBtn.classList.remove('active');
-            const menuIcon = menuBtn.querySelector('i');
-            if (menuIcon) {
-                menuIcon.classList.add('fa-bars');
-                menuIcon.classList.remove('fa-times');
-            }
-        }
+        menuBtn.classList.remove('active');
+        mobileMenu.classList.remove('active');
     });
 });
 
-// Dark/Light Theme Toggle
-const themeToggle = document.getElementById('themeToggle');
-const htmlElement = document.documentElement;
-
-// Check for saved theme
-const savedTheme = localStorage.getItem('theme');
-const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
-    htmlElement.classList.add('dark');
-    if (themeToggle) {
-        const icon = themeToggle.querySelector('i');
-        if (icon) icon.className = 'fas fa-sun';
-    }
-} else {
-    htmlElement.classList.remove('dark');
-    if (themeToggle) {
-        const icon = themeToggle.querySelector('i');
-        if (icon) icon.className = 'fas fa-moon';
-    }
-}
-
-if (themeToggle) {
-    themeToggle.addEventListener('click', () => {
-        htmlElement.classList.toggle('dark');
-        const isDark = htmlElement.classList.contains('dark');
-        localStorage.setItem('theme', isDark ? 'dark' : 'light');
-        
-        const icon = themeToggle.querySelector('i');
-        if (icon) {
-            icon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
-        }
-    });
-}
-
-// Language translations
-const translations = {
-    en: {
-        'loading': 'Loading...',
-        'nav.home': 'Home',
-        'nav.about': 'About',
-        'nav.skills': 'Skills',
-        'nav.portfolio': 'Portfolio',
-        'nav.contact': 'Contact',
-        'hero.name': 'Ashirboyev',
-        'hero.description': 'Frontend & Full Stack Developer from Tashkent. Creating beautiful and functional web experiences.',
-        'hero.hireBtn': 'Hire Me',
-        'hero.workBtn': 'My Work',
-        'about.title': 'About Me',
-        'about.yearsExp': 'Years Experience',
-        'about.projects': 'Projects',
-        'about.clients': 'Happy Clients',
-        'about.support': 'Support',
-        'about.desc1': "Hi, I'm Umidjon - Frontend & Full Stack Developer from Tashkent. I'm passionate about creating beautiful and functional web applications.",
-        'about.desc2': 'Currently studying Artificial Intelligence at TUIT and working with modern technologies like React, Vue.js, Python, and Django.',
-        'about.desc3': "I'm ready to work on excellent projects with wonderful people and turn ideas into reality.",
-        'skills.title': 'My Skills',
-        'skills.frontend': 'Frontend Development',
-        'skills.backend': 'Backend Development',
-        'skills.tools': 'Tools & Others',
-        'portfolio.title': 'My Portfolio',
-        'portfolio.all': 'All',
-        'portfolio.frontend': 'Frontend',
-        'portfolio.fullstack': 'Full Stack',
-        'portfolio.django': 'Django',
-        'portfolio.viewProject': 'View Project',
-        'contact.title': 'Get In Touch',
-        'contact.info': "Let's talk about your project",
-        'contact.phone': 'Phone',
-        'contact.email': 'Email',
-        'contact.location': 'Location',
-        'contact.address': 'Tashkent, Uzbekistan',
-        'contact.namePlaceholder': 'Your Name',
-        'contact.messagePlaceholder': 'Your Message',
-        'contact.sendBtn': 'Send Message',
-        'footer.copyright': '© 2024 All rights reserved'
-    },
-    ru: {
-        'loading': 'Загрузка...',
-        'nav.home': 'Главная',
-        'nav.about': 'Обо мне',
-        'nav.skills': 'Навыки',
-        'nav.portfolio': 'Портфолио',
-        'nav.contact': 'Контакты',
-        'hero.name': 'Аширбоев',
-        'hero.description': 'Frontend и Full Stack разработчик из Ташкента. Создаю красивые и функциональные веб-приложения.',
-        'hero.hireBtn': 'Нанять меня',
-        'hero.workBtn': 'Мои работы',
-        'about.title': 'Обо мне',
-        'about.yearsExp': 'Лет опыта',
-        'about.projects': 'Проектов',
-        'about.clients': 'Довольных клиентов',
-        'about.support': 'Поддержка',
-        'about.desc1': 'Привет, я Умиджон - Frontend и Full Stack разработчик из Ташкента. Я увлечен созданием красивых и функциональных веб-приложений.',
-        'about.desc2': 'В настоящее время изучаю искусственный интеллект в ТУИТ и работаю с современными технологиями, такими как React, Vue.js, Python и Django.',
-        'about.desc3': 'Я готов работать над отличными проектами с замечательными людьми и воплощать идеи в реальность.',
-        'skills.title': 'Мои навыки',
-        'skills.frontend': 'Frontend разработка',
-        'skills.backend': 'Backend разработка',
-        'skills.tools': 'Инструменты',
-        'portfolio.title': 'Портфолио',
-        'portfolio.all': 'Все',
-        'portfolio.frontend': 'Frontend',
-        'portfolio.fullstack': 'Full Stack',
-        'portfolio.django': 'Django',
-        'portfolio.viewProject': 'Посмотреть проект',
-        'contact.title': 'Связаться',
-        'contact.info': 'Давайте обсудим ваш проект',
-        'contact.phone': 'Телефон',
-        'contact.email': 'Почта',
-        'contact.location': 'Локация',
-        'contact.address': 'Ташкент, Узбекистан',
-        'contact.namePlaceholder': 'Ваше имя',
-        'contact.messagePlaceholder': 'Ваше сообщение',
-        'contact.sendBtn': 'Отправить',
-        'footer.copyright': '© 2024 Все права защищены'
-    }
-};
-
-// Language switcher functionality
-let currentLang = localStorage.getItem('lang') || 'en';
-
-function setLanguage(lang) {
-    currentLang = lang;
-    localStorage.setItem('lang', lang);
-    
-    // Update language buttons
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.classList.remove('active', 'bg-blue-600', 'text-white');
-        if (btn.dataset.lang === lang) {
-            btn.classList.add('active', 'bg-blue-600', 'text-white');
-        }
-    });
-    
-    // Translate all elements with data-i18n attribute
-    document.querySelectorAll('[data-i18n]').forEach(element => {
-        const key = element.dataset.i18n;
-        if (translations[lang] && translations[lang][key]) {
-            if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-                element.placeholder = translations[lang][key];
-            } else {
-                element.textContent = translations[lang][key];
-            }
-        }
-    });
-    
-    // Translate placeholders
-    document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
-        const key = element.dataset.i18nPlaceholder;
-        if (translations[lang] && translations[lang][key]) {
-            element.placeholder = translations[lang][key];
-        }
-    });
-}
-
-// Initialize language
-document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
-});
-
-// Set initial language
-setLanguage(currentLang);
-
-// Active navigation link on scroll
+// ===== 8. ACTIVE NAVIGATION =====
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('[data-nav]');
 
@@ -285,7 +197,7 @@ function setActiveNav() {
         if (scrollY >= sectionTop && scrollY < sectionBottom) {
             navLinks.forEach(link => {
                 link.classList.remove('active');
-                if (link.dataset.nav === sectionId) {
+                if (link.getAttribute('data-nav') === sectionId) {
                     link.classList.add('active');
                 }
             });
@@ -296,230 +208,139 @@ function setActiveNav() {
 window.addEventListener('scroll', setActiveNav);
 setActiveNav();
 
-// Animate skill progress bars on scroll
-const skillBars = document.querySelectorAll('.skill-progress-bar');
-
-const skillObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const percent = entry.target.getAttribute('data-percent') || '0%';
-            entry.target.style.width = percent;
+// ===== 9. PHONE MASK =====
+const phoneInput = document.getElementById('phone');
+if (phoneInput) {
+    phoneInput.addEventListener('input', (e) => {
+        let x = e.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,2})(\d{0,3})(\d{0,2})(\d{0,2})/);
+        if (!x[1]) { 
+            e.target.value = '+998'; 
+            return; 
         }
-    });
-}, { threshold: 0.5 });
-
-skillBars.forEach(bar => {
-    const width = bar.style.width;
-    bar.setAttribute('data-percent', width);
-    bar.style.width = '0%';
-    skillObserver.observe(bar);
-});
-
-// Portfolio filtering
-const filterBtns = document.querySelectorAll('.filter-btn');
-const portfolioItems = document.querySelectorAll('.portfolio-card');
-
-if (filterBtns.length > 0 && portfolioItems.length > 0) {
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            // Update active button
-            filterBtns.forEach(b => {
-                b.classList.remove('active', 'bg-blue-600', 'text-white');
-                b.classList.add('bg-gray-200', 'dark:bg-gray-700');
-            });
-            btn.classList.add('active', 'bg-blue-600', 'text-white');
-            btn.classList.remove('bg-gray-200', 'dark:bg-gray-700');
-            
-            // Filter items
-            const filter = btn.dataset.filter;
-            portfolioItems.forEach(item => {
-                if (filter === 'all' || item.dataset.category === filter) {
-                    item.style.display = 'block';
-                    setTimeout(() => {
-                        item.style.opacity = '1';
-                        item.style.transform = 'scale(1)';
-                    }, 10);
-                } else {
-                    item.style.opacity = '0';
-                    item.style.transform = 'scale(0.8)';
-                    setTimeout(() => {
-                        item.style.display = 'none';
-                    }, 300);
-                }
-            });
-        });
+        e.target.value = !x[2] ? '+998' : '+998 (' + x[2] + (x[3] ? ') ' + x[3] : '') + (x[4] ? '-' + x[4] : '') + (x[5] ? '-' + x[5] : '');
     });
 }
 
-// Smooth reveal animations
-const revealElements = document.querySelectorAll('.skill-category, .portfolio-card, .about-content p');
-const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('animate-slide-up');
+// ===== 10. TELEGRAM BOT =====
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+    contactForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const submitBtn = document.getElementById('submitBtn');
+        const formMsg = document.getElementById('formMessage');
+        const name = document.getElementById('name').value;
+        const phone = document.getElementById('phone').value;
+        const message = document.getElementById('message').value;
+        
+        // Validate
+        if (!name.trim() || !phone.trim() || !message.trim()) {
+            formMsg.textContent = translations[currentLang]['msg.error'];
+            formMsg.className = 'form-message error';
+            formMsg.style.display = 'block';
+            setTimeout(() => formMsg.style.display = 'none', 3000);
+            return;
+        }
+        
+        // Telegram message
+        const text = `🚀 **Yangi xabar!**\n\n👤 **Ism:** ${name}\n📞 **Telefon:** ${phone}\n💬 **Xabar:** ${message}`;
+        
+        // Disable button
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = currentLang === 'en' ? 
+            '<span>Sending...</span> <i class="fas fa-spinner fa-spin"></i>' : 
+            '<span>Отправка...</span> <i class="fas fa-spinner fa-spin"></i>';
+        
+        try {
+            // TO'G'RI URL: bot token dan keyin /sendMessage
+            const res = await fetch(`https://api.telegram.org/7043945637:AAHdqTcvH1hC_dZx8rT5C_0zq/sendMessage`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ 
+                    chat_id: '-1003848661157', 
+                    text: text, 
+                    parse_mode: 'Markdown' 
+                })
+            });
+            
+            const data = await res.json();
+            
+            if (data.ok) {
+                formMsg.textContent = translations[currentLang]['msg.success'];
+                formMsg.className = 'form-message success';
+                formMsg.style.display = 'block';
+                this.reset();
+                
+                // Phone input ni tozalash
+                if (phoneInput) phoneInput.value = '';
+            } else {
+                console.error('Telegram error:', data);
+                throw new Error(data.description || 'Failed to send');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            formMsg.textContent = translations[currentLang]['msg.error'];
+            formMsg.className = 'form-message error';
+            formMsg.style.display = 'block';
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = `<span>${translations[currentLang]['contact.sendBtn']}</span> <i class="fas fa-paper-plane"></i>`;
+            
+            setTimeout(() => {
+                formMsg.style.display = 'none';
+            }, 5000);
         }
     });
-}, { threshold: 0.1 });
+}
 
-revealElements.forEach(el => revealObserver.observe(el));
+// ===== 11. PORTFOLIO FILTER =====
+const filterBtns = document.querySelectorAll('.filter-btn');
+const portfolioCards = document.querySelectorAll('.portfolio-card');
 
-// Parallax effect for hero section
-window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const hero = document.querySelector('.home-section');
-    if (hero) {
-        hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-    }
+filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        // Update active button
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        // Filter cards
+        const filter = btn.getAttribute('data-filter');
+        portfolioCards.forEach(card => {
+            if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                card.style.display = 'block';
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'scale(1)';
+                }, 10);
+            } else {
+                card.style.opacity = '0';
+                card.style.transform = 'scale(0.8)';
+                setTimeout(() => {
+                    card.style.display = 'none';
+                }, 300);
+            }
+        });
+    });
 });
 
-// Smooth scroll with offset
+// ===== 12. SMOOTH SCROLL =====
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-            const offset = 80;
-            const targetPosition = target.offsetTop - offset;
-            
-            window.scrollTo({
-                top: targetPosition,
-                behavior: 'smooth'
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
             });
-            
-            // Close mobile menu if open
-            if (sidebar && sidebar.classList.contains('active')) {
-                sidebar.classList.remove('active');
-                if (overlay) overlay.classList.remove('active');
-                if (menuBtn) menuBtn.classList.remove('active');
-            }
-            
-            if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
-                mobileMenu.classList.add('hidden');
-                if (menuBtn) {
-                    const menuIcon = menuBtn.querySelector('i');
-                    if (menuIcon) {
-                        menuIcon.classList.add('fa-bars');
-                        menuIcon.classList.remove('fa-times');
-                    }
-                }
-            }
         }
     });
 });
 
-// Telegram bot configuration
-const TELEGRAM_BOT_TOKEN = '7043945637:AAHdqTcvH1hC_dZx8rT5C_0zq'; // Replace with your bot token
-const TELEGRAM_CHAT_ID = '-1001234567890'; // Replace with your chat ID
-
-// Contact form submission
-const contactForm = document.getElementById('contactForm');
-
-if (contactForm) {
-    contactForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        
-        const name = document.getElementById('name').value;
-        const message = document.getElementById('message').value;
-        const submitBtn = document.getElementById('submitBtn');
-        const formMessage = document.getElementById('formMessage');
-        
-        // Validate
-        if (!name.trim() || !message.trim()) {
-            if (formMessage) {
-                formMessage.className = 'form-message error';
-                formMessage.textContent = currentLang === 'en' ? 'Please fill in all fields' : 'Заполните все поля';
-                formMessage.style.display = 'block';
-                setTimeout(() => {
-                    formMessage.style.display = 'none';
-                }, 3000);
-            }
-            return;
-        }
-        
-        // Disable button
-        if (submitBtn) {
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = currentLang === 'en' ? 
-                '<span>Sending...</span> <i class="fas fa-spinner fa-spin"></i>' : 
-                '<span>Отправка...</span> <i class="fas fa-spinner fa-spin"></i>';
-        }
-        
-        const telegramMessage = `
-📬 **New Message from Portfolio**
-
-👤 **Name:** ${name}
-💬 **Message:** ${message}
-
----
-Sent from: ${window.location.href}
-Time: ${new Date().toLocaleString()}
-        `;
-        
-        try {
-            const response = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    chat_id: TELEGRAM_CHAT_ID,
-                    text: telegramMessage,
-                    parse_mode: 'Markdown'
-                })
-            });
-            
-            const data = await response.json();
-            
-            if (formMessage) {
-                if (data.ok) {
-                    formMessage.className = 'form-message success';
-                    formMessage.textContent = currentLang === 'en' ? 
-                        'Message sent successfully!' : 
-                        'Сообщение отправлено!';
-                    formMessage.style.display = 'block';
-                    contactForm.reset();
-                } else {
-                    throw new Error('Failed to send');
-                }
-            }
-        } catch (error) {
-            if (formMessage) {
-                formMessage.className = 'form-message error';
-                formMessage.textContent = currentLang === 'en' ? 
-                    'Failed to send message. Please try again.' : 
-                    'Ошибка. Попробуйте снова.';
-                formMessage.style.display = 'block';
-            }
-        } finally {
-            if (submitBtn) {
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = currentLang === 'en' ? 
-                    '<span>Send Message</span> <i class="fas fa-paper-plane"></i>' : 
-                    '<span>Отправить</span> <i class="fas fa-paper-plane"></i>';
-            }
-            
-            if (formMessage) {
-                setTimeout(() => {
-                    formMessage.style.display = 'none';
-                }, 5000);
-            }
-        }
-    });
-}
-
-// Handle window resize
+// ===== 13. RESIZE HANDLER =====
 window.addEventListener('resize', () => {
     if (window.innerWidth > 768) {
-        if (mobileMenu) mobileMenu.classList.add('hidden');
-        if (sidebar) sidebar.classList.remove('active');
-        if (overlay) overlay.classList.remove('active');
-        if (menuBtn) {
-            menuBtn.classList.remove('active');
-            const menuIcon = menuBtn.querySelector('i');
-            if (menuIcon) {
-                menuIcon.classList.add('fa-bars');
-                menuIcon.classList.remove('fa-times');
-            }
-        }
+        mobileMenu.classList.remove('active');
+        menuBtn.classList.remove('active');
     }
 });
