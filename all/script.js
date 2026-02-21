@@ -1,3 +1,9 @@
+ window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  
+  gtag('js', new Date());
+  gtag('config', 'G-W02BT0SXBS');
+
 // AOS Animation initialization
 AOS.init({
     duration: 1000,
