@@ -222,6 +222,7 @@ if (phoneInput) {
 }
 
 // ===== 10. TELEGRAM BOT =====
+// ===== 10. TELEGRAM BOT (CORS PROXY bilan) =====
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
     contactForm.addEventListener('submit', async function(e) {
@@ -252,8 +253,10 @@ if (contactForm) {
             '<span>Отправка...</span> <i class="fas fa-spinner fa-spin"></i>';
         
         try {
-            // TO'G'RI URL: bot token dan keyin /sendMessage
-            const res = await fetch(`https://api.telegram.org/7043945637:AAHdqTcvH1hC_dZx8rT5C_0zq/sendMessage`, {
+            // CORS PROXY orqali yuborish
+            const url = `https://corsproxy.io/?${encodeURIComponent('https://api.telegram.org/bot8514142968:AAEj82ZobPep9_CVKG3jFrPfgWGZGvUSt2g/sendMessage')}`;
+            
+            const res = await fetch(url, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ 
@@ -270,12 +273,9 @@ if (contactForm) {
                 formMsg.className = 'form-message success';
                 formMsg.style.display = 'block';
                 this.reset();
-                
-                // Phone input ni tozalash
                 if (phoneInput) phoneInput.value = '';
             } else {
-                console.error('Telegram error:', data);
-                throw new Error(data.description || 'Failed to send');
+                throw new Error(data.description);
             }
         } catch (error) {
             console.error('Error:', error);
@@ -291,7 +291,7 @@ if (contactForm) {
             }, 5000);
         }
     });
-}
+}   
 
 // ===== 11. PORTFOLIO FILTER =====
 const filterBtns = document.querySelectorAll('.filter-btn');
